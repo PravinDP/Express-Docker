@@ -1,0 +1,13 @@
+version: '2'
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: express:backend
+    container_name: backend-container
+    restart: "on-failure:10"
+    ports:
+      - "4000:4000"
+    environment:
+      DATABASE_URL: postgres://todoapp@postgres/todos
